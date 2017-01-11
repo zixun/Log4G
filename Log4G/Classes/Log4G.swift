@@ -106,12 +106,10 @@ open class Log4G: NSObject {
                      line: Int,
                      function: String) {
         self.queue.async {
-            
-            let name = self.name(of: file)
             let model = LogModel(type: type,
                                  thread: thread,
                                  message: message,
-                                 file: file,
+                                 file: self.name(of: file),
                                  line: line,
                                  function: function)
             print(message)
