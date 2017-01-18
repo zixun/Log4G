@@ -126,7 +126,7 @@ open class Log4G: NSObject {
     /// - Parameter file: path of file
     /// - Returns: filename
     private func name(of file:String) -> String {
-        return URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
+        return URL(fileURLWithPath: file).lastPathComponent
     }
     
     
@@ -143,6 +143,12 @@ open class Log4G: NSObject {
 
 // MARK: - Log4gDelegate Fucntion
 extension Log4G {
+    
+    open class var delegateCount: Int {
+        get {
+            return self.shared.delegates.count
+        }
+    }
     
     open class func add(delegate:Log4GDelegate) {
         let log4g = self.shared
