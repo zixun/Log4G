@@ -8,14 +8,17 @@
 
 import Foundation
 
-//MARK: - Log4gDelegate
+//--------------------------------------------------------------------------
+// MARK: - Log4gDelegate
+//--------------------------------------------------------------------------
 public protocol Log4GDelegate: NSObjectProtocol {
     func log4gDidRecord(with model:LogModel)
 }
 
-
-//MARK: - WeakLog4gDelegate
-/// Weak wrap of delegate
+//--------------------------------------------------------------------------
+// MARK: - WeakLog4gDelegate
+// DESCRIPTION: Weak wrap of delegate
+//--------------------------------------------------------------------------
 class WeakLog4GDelegate: NSObject {
     weak var delegate : Log4GDelegate?
     init (delegate: Log4GDelegate) {
@@ -24,12 +27,16 @@ class WeakLog4GDelegate: NSObject {
     }
 }
 
-//MARK: - Log4G
-/// Simple, lightweight logging framework written in Swift
-/// 4G means for GodEye, it was development for GodEye at the beginning of the time
+//--------------------------------------------------------------------------
+// MARK: - Log4G
+// DESCRIPTION: Simple, lightweight logging framework written in Swift
+//              4G means for GodEye, it was development for GodEye at the beginning of the time
+//--------------------------------------------------------------------------
 open class Log4G: NSObject {
     
-    //MARK: - Open Function
+    //--------------------------------------------------------------------------
+    // MARK: OPEN FUNCTION
+    //--------------------------------------------------------------------------
     
     /// record a log type message
     ///
@@ -88,7 +95,9 @@ open class Log4G: NSObject {
                            function: function)
     }
     
-    //MARK: - Private Function
+    //--------------------------------------------------------------------------
+    // MARK: PRIVATE FUNCTION
+    //--------------------------------------------------------------------------
     
     /// record message base function
     ///
@@ -141,7 +150,9 @@ open class Log4G: NSObject {
     
 }
 
-// MARK: - Log4gDelegate Fucntion
+//--------------------------------------------------------------------------
+// MARK: - Log4gDelegate Fucntion Extension
+//--------------------------------------------------------------------------
 extension Log4G {
     
     open class var delegateCount: Int {
