@@ -1,6 +1,5 @@
 # Log4G
 
-[![CI Status](http://img.shields.io/travis/zixun/Log4G.svg?style=flat)](https://travis-ci.org/zixun/Log4G)
 [![Version](https://img.shields.io/cocoapods/v/Log4G.svg?style=flat)](http://cocoapods.org/pods/Log4G)
 [![License](https://img.shields.io/cocoapods/l/Log4G.svg?style=flat)](http://cocoapods.org/pods/Log4G)
 [![Platform](https://img.shields.io/cocoapods/p/Log4G.svg?style=flat)](http://cocoapods.org/pods/Log4G)
