@@ -1,5 +1,5 @@
 PODS:
-  - Log4G (0.1.0)
+  - Log4G (0.2.2)
 
 DEPENDENCIES:
   - Log4G (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Log4G: f03eeb05f55a8602779d8c57dce0bf32bf0e0820
+  Log4G: b534d51b2ee9a4eaff7392fa33dab4484d612012
 
 PODFILE CHECKSUM: 81a56c400e4e3d22ee496be04e2e43d21e6071c8
 

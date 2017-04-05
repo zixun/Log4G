@@ -11,20 +11,8 @@ import Foundation
 //--------------------------------------------------------------------------
 // MARK: - Log4gDelegate
 //--------------------------------------------------------------------------
-public protocol Log4GDelegate: NSObjectProtocol {
+@objc public protocol Log4GDelegate: NSObjectProtocol {
     func log4gDidRecord(with model:LogModel)
-}
-
-//--------------------------------------------------------------------------
-// MARK: - WeakLog4gDelegate
-// DESCRIPTION: Weak wrap of delegate
-//--------------------------------------------------------------------------
-class WeakLog4GDelegate: NSObject {
-    weak var delegate : Log4GDelegate?
-    init (delegate: Log4GDelegate) {
-        super.init()
-        self.delegate = delegate
-    }
 }
 
 //--------------------------------------------------------------------------
@@ -123,10 +111,9 @@ open class Log4G: NSObject {
                                  function: function)
             print(message)
             
-            for delegate in self.delegates {
-                delegate.delegate?.log4gDidRecord(with: model)
+            while let delegate: Log4GDelegate = self.delegates.objectEnumerator().nextObject() as? Log4GDelegate {
+                delegate.log4gDidRecord(with: model)
             }
-            
         }
     }
     
@@ -138,7 +125,6 @@ open class Log4G: NSObject {
         return URL(fileURLWithPath: file).lastPathComponent
     }
     
-    
     //MARK: - Private Variable
     
     /// singleton for Log4g
@@ -146,7 +132,7 @@ open class Log4G: NSObject {
     /// log queue
     private let queue = DispatchQueue(label: "Log4g")
     /// weak delegates
-    fileprivate var delegates = [WeakLog4GDelegate]()
+    fileprivate var delegates = NSHashTable<Log4GDelegate>(options: .weakMemory)
     
 }
 
@@ -164,33 +150,13 @@ extension Log4G {
     open class func add(delegate:Log4GDelegate) {
         let log4g = self.shared
         
-        // delete null week delegate
-        log4g.delegates = log4g.delegates.filter {
-            return $0.delegate != nil
-        }
-        
-        // judge if contains the delegate from parameter
-        let contains = log4g.delegates.contains {
-            return $0.delegate?.hash == delegate.hash
-        }
-        // if not contains, append it with weak wrapped
-        if contains == false {
-            let week = WeakLog4GDelegate(delegate: delegate)
-            
-            self.shared.delegates.append(week)
-        }
+        log4g.delegates.add(delegate)
     }
     
     open class func remove(delegate:Log4GDelegate) {
         let log4g = self.shared
         
-        log4g.delegates = log4g.delegates.filter {
-            // filter null weak delegate
-            return $0.delegate != nil
-        }.filter {
-            // filter the delegate from parameter
-            return $0.delegate?.hash != delegate.hash
-        }
+        log4g.delegates.remove(delegate)
     }
 }
 
