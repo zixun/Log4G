@@ -56,7 +56,7 @@
 /* Begin PBXFileReference section */
 		053FA2A3BF0AAB165BDBA4AB /* Pods-Log4G_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Log4G_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Log4G_Tests/Pods-Log4G_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		17C4EB897EDD3F2C11F8B2B3 /* Pods_Log4G_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Log4G_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AF339AE1549EB9A8C44C885 /* Log4G.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Log4G.podspec; path = ../Log4G.podspec; sourceTree = "<group>"; };
+		1AF339AE1549EB9A8C44C885 /* Log4G.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Log4G.podspec; path = ../Log4G.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* Log4G_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Log4G_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
